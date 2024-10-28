@@ -11,16 +11,20 @@ body {
     height: 100vh;
     flex-direction: column;
     overflow: hidden;
+    padding: 20px; 
 }
 
 .container {
     text-align: center;
     position: relative;
+    width: 100%;
+    max-width: 600px; 
 }
 
 .header-image {
     width: 100%;
-    max-width: 600px; /* Adjust based on your image size */
+    max-width: 600px;
+    height: auto; 
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
@@ -35,8 +39,8 @@ input {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 400px; 
     font-size: 1.2em;
     margin-bottom: 10px;
 }
@@ -50,6 +54,8 @@ button {
     font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 400px; 
 }
 
 button:hover {
@@ -59,7 +65,7 @@ button:hover {
 .result {
     margin-top: 20px;
     font-size: 1.5em;
-    height: 50px; /* Fixed height for animation */
+    height: 50px; 
 }
 
 /* Confetti styles */
@@ -79,5 +85,36 @@ button:hover {
     to {
         transform: translateX(-50%) translateY(100vh);
         opacity: 1;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    input,
+    button {
+        font-size: 1em; 
+    }
+
+    .header-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; 
+    }
+
+    input,
+    button {
+        padding: 8px;
+    }
+
+    .result {
+        font-size: 1.2em; 
     }
 }
