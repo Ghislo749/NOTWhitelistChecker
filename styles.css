@@ -2,7 +2,6 @@
 
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
     background-color: #1a1a1a;
     color: #ffffff;
     display: flex;
@@ -46,7 +45,6 @@ input {
 }
 
 button {
-    font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     padding: 10px 20px;
     border: none;
