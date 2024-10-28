@@ -26,3 +26,5 @@ async function checkWhitelist() {
       console.error(error);
   }
 }
+
+document.getElementById("checkButton").addEventListener("click", checkWhitelist);
