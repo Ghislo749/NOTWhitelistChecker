@@ -15,7 +15,7 @@ async function checkWhitelist() {
 
       for (let entry of data) {
           if (entry.address === address) {
-              wlSpots = `You have ${entry.count} whitelist spot(s).`;              
+              wlSpots = `You have ${entry.count} whitelist spot(s).`;
               break;
           }
       }
