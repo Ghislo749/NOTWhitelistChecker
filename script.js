@@ -29,28 +29,39 @@ async function checkWhitelist() {
 }
 
 function createConfetti() {
-  const confettiCount = 100;
+  const confettiCount = 100; 
   const confettiContainer = document.createElement('div');
   confettiContainer.classList.add('confetti');
 
   for (let i = 0; i < confettiCount; i++) {
       const confettiPiece = document.createElement('div');
       confettiPiece.classList.add('confetti-piece');
-      confettiPiece.style.width = `${Math.random() * 10 + 5}px`;
-      confettiPiece.style.height = `${Math.random() * 10 + 5}px`;
-      confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+      // Set random properties for each confetti piece
+      const size = Math.random() * 10 + 5; 
+      confettiPiece.style.width = `${size}px`;
+      confettiPiece.style.height = `${size}px`;
+      confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Random color
+
+      // Set random position and animation duration
       confettiPiece.style.position = 'absolute';
-      confettiPiece.style.left = `${Math.random() * 100}%`;
-      confettiPiece.style.top = `${Math.random() * 100}%`;
-      confettiPiece.style.opacity = '0.8';
+      confettiPiece.style.left = `${Math.random() * 100}%`; 
+      confettiPiece.style.top = `0%`; 
+
+      // Randomize the animation duration for each piece
+      const duration = Math.random() * 3 + 2; 
+      confettiPiece.style.animation = `fall ${duration}s ease-in forwards, drift ${duration}s ease-in-out infinite`;
+
       confettiContainer.appendChild(confettiPiece);
   }
 
   document.body.appendChild(confettiContainer);
 
+  // Remove the confetti container after some time
   setTimeout(() => {
       confettiContainer.remove();
-  }, 1000);
+  }, 5000); // Keep confetti on screen for 5 seconds
 }
+
 
 document.getElementById("checkButton").addEventListener("click", checkWhitelist);
