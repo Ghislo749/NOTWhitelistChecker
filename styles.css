@@ -47,10 +47,11 @@ input {
 
 button {
     font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ff9430;
+    background-color: #ff8310;
     color: white;
     font-size: 1.2em;
     cursor: pointer;
@@ -60,54 +61,13 @@ button {
 }
 
 button:hover {
-    background-color: #ff7b00;
+    background-color: #ff5e00;
 }
 
 .result {
     margin-top: 20px;
     font-size: 1.5em;
     height: 50px; 
-}
-
-/* Confetti styles */
-.confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Allow clicks to go through */
-    overflow: hidden; /* Prevent scrollbars */
-    z-index: 9999; /* Keep it on top of everything */
-}
-
-/* Confetti pieces */
-.confetti-piece {
-    position: absolute;
-    opacity: 0.8;
-    border-radius: 10px; /* Make corners rounded for a softer look */
-}
-
-/* Keyframes for animations */
-@keyframes fall {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vh) rotate(720deg); /* Rotate while falling */
-    }
-}
-
-@keyframes drift {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-30px); /* Drift left */
-    }
-    100% {
-        transform: translateX(30px); /* Drift right */
-    }
 }
 
 /* Media Queries for Responsiveness */
