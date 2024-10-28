@@ -28,7 +28,8 @@ async function checkWhitelist() {
   }
 }
 
-function createConfetti() {
+// Function to create confetti
+function createConfetti(x, y) {
   const confettiCount = 100; 
   const confettiContainer = document.createElement('div');
   confettiContainer.classList.add('confetti');
@@ -41,16 +42,23 @@ function createConfetti() {
       const size = Math.random() * 10 + 5; 
       confettiPiece.style.width = `${size}px`;
       confettiPiece.style.height = `${size}px`;
-      confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Random color
+      confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; 
 
-      // Set random position and animation duration
+      // Set position based on click coordinates
       confettiPiece.style.position = 'absolute';
-      confettiPiece.style.left = `${Math.random() * 100}%`; 
-      confettiPiece.style.top = `0%`; 
+      confettiPiece.style.left = `${x}px`;
+      confettiPiece.style.top = `${y}px`;
 
-      // Randomize the animation duration for each piece
+      // Randomize the animation properties
+      const angle = Math.random() * 360; 
       const duration = Math.random() * 3 + 2; 
-      confettiPiece.style.animation = `fall ${duration}s ease-in forwards, drift ${duration}s ease-in-out infinite`;
+
+      // Apply animations for falling and drifting
+      confettiPiece.style.animation = `explode ${duration}s forwards, fall ${duration}s ease-in forwards`;
+      confettiPiece.style.transform = `rotate(${angle}deg)`;
+
+      // Add random horizontal movement to simulate drifting
+      confettiPiece.style.animation += `, drift ${duration}s ease-in-out infinite`;
 
       confettiContainer.appendChild(confettiPiece);
   }
@@ -60,8 +68,10 @@ function createConfetti() {
   // Remove the confetti container after some time
   setTimeout(() => {
       confettiContainer.remove();
-  }, 5000); // Keep confetti on screen for 5 seconds
+  }, 5000); 
 }
 
-
-document.getElementById("checkButton").addEventListener("click", checkWhitelist);
+// Add click event listener to create confetti
+document.addEventListener('click', (event) => {
+  createConfetti(event.clientX, event.clientY);
+});

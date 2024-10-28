@@ -46,10 +46,11 @@ input {
 }
 
 button {
+    font-family: 'Courier New', Courier, monospace;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #e60000;
+    background-color: #ff9430;
     color: white;
     font-size: 1.2em;
     cursor: pointer;
@@ -59,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: #cc0000;
+    background-color: #ff7b00;
 }
 
 .result {
@@ -76,15 +77,25 @@ button:hover {
     width: 100%;
     height: 100%;
     pointer-events: none; 
-    overflow: hidden; 
+    overflow: hidden;
     z-index: 9999;
 }
 
+/* Confetti pieces */
 .confetti-piece {
     position: absolute;
     opacity: 0.8;
-    border-radius: 5px;
-    will-change: transform;
+    border-radius: 10px; 
+}
+
+/* Keyframes for animations */
+@keyframes explode {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1) translate(var(--x), var(--y)); 
+    }
 }
 
 @keyframes fall {
@@ -101,10 +112,10 @@ button:hover {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(-30px); /* Drift left */
+        transform: translateX(-15px); 
     }
     100% {
-        transform: translateX(0); /* Drift back to center */
+        transform: translateX(0); 
     }
 }
 
